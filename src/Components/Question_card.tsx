@@ -1,4 +1,5 @@
 import React from 'react'
+import { ListGroup } from 'react-bootstrap'
 
 type props={
     question: string;
@@ -14,16 +15,19 @@ export const Question_card: React.FC<props>=({question,answers,callback,userAnsw
         <div>
             <p>Questions: {questionNumber} / {totalQuestions}
                </p> 
-            <p dangerouslySetInnerHTML={{__html: question}}></p>
-            <p>
-                {answers.map(answer=>(
-                    <div>
-                        <button disabled={userAnswer} onClick={callback}>
+            <ListGroup >
+                <ListGroup.Item disabled> <span dangerouslySetInnerHTML={{__html: question}} ></span> </ListGroup.Item>
+            {answers.map(answer=>(
+            <ListGroup.Item action
+            disabled={userAnswer} onClick={callback}>
                             <span dangerouslySetInnerHTML={{__html:answer}}></span>
-                        </button>
-                    </div>
-                ) )}
-                </p>        
+                        
+
+            </ListGroup.Item>
+            ) )}
+          </ListGroup>
+            
+               
         </div>
     )
 }
