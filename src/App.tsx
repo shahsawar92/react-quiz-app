@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchQuestions , questionState} from './Components/API';
 import {QuestionCard} from './Components/QuestionCard';
 
+/* eslint eqeqeq: 0 */
 
 function App() {
   //object type for answer that store info for user answers
@@ -75,7 +76,7 @@ function App() {
        setuans(prev=>[...prev, AnswerObj])
      }
 };
-const shah:number= uans.length;
+
 console.log("type:",typeof(uans.length))
   return (
     <Container>
@@ -87,7 +88,7 @@ console.log("type:",typeof(uans.length))
        <br /><br />
        {/* start button  */}
        
-       { gameover || uans.length == noOfQuestion ?(
+       { gameover || uans.length === noOfQuestion ?(
         <div>
               <div className="mb-2">
                <Button variant="outline-success" size="lg" onClick={startquiz}>
