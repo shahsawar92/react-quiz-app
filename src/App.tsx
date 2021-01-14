@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { Alert, Button, Card, Container, Form,Navbar, Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchQuestions , questionState} from './Components/API';
-import {Question_card} from './Components/Question_card';
+import {QuestionCard} from './Components/QuestionCard';
 
 
 function App() {
@@ -75,8 +75,10 @@ function App() {
        setuans(prev=>[...prev, AnswerObj])
      }
 };
+const shah:number= uans.length;
+console.log("type:",typeof(uans.length))
   return (
-    <Container >
+    <Container>
          {/* heading name */}
          <Navbar bg="dark" variant="dark">
                <Navbar.Brand >QUIZ</Navbar.Brand>
@@ -84,6 +86,7 @@ function App() {
        
        <br /><br />
        {/* start button  */}
+       
        { gameover || uans.length == noOfQuestion ?(
         <div>
               <div className="mb-2">
@@ -125,7 +128,7 @@ function App() {
     <Card.Body>
    { !loading && !gameover && uans.length !== noOfQuestion ? (
          
-    <Card.Text><Question_card 
+    <Card.Text as="span"><QuestionCard 
         questionNumber= {number+1}
         totalQuestions={noOfQuestion}
         question={questions[number].question}
